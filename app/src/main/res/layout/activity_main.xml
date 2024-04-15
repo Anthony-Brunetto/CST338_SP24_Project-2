@@ -9,10 +9,71 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="40dp"
+        android:text="@string/welcome_username"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="35sp"
+        android:id="@+id/Welcome_text_Textview"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="100sp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome_text_Textview"
+        android:text="@string/vinyls"
+        android:textSize="30sp"
+        android:id="@+id/Vinyl_button"
+        android:outlineSpotShadowColor="@color/black"
+        android:shadowColor="@color/black"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="100sp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Vinyl_button"
+        android:text="@string/instruments"
+        android:textSize="30sp"
+        android:id="@+id/Instrument_button"
+        android:outlineSpotShadowColor="@color/black"
+        android:shadowColor="@color/black"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/Music_Player_button"
+        android:layout_width="250dp"
+        android:layout_height="100sp"
+        android:layout_marginTop="60dp"
+        android:text="@string/music_players"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Instrument_button"
+        android:outlineSpotShadowColor="@color/black"
+        android:shadowColor="@color/black"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:hint="@string/tune_trade1"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Music_Player_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

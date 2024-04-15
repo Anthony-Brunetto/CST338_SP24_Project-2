@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tune_Trade</string>
+    <string name="welcome_username">Welcome {Username}</string>
+    <string name="vinyls">Vinyls</string>
+    <string name="instruments">Instruments</string>
+    <string name="music_players">Music Players</string>
+    <string name="tune_trade">Tune Trade</string>
+    <string name="tune_trade1">Tune Trade</string>
 </resources>
