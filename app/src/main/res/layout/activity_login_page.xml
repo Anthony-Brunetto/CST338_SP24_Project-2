@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/Username_Text_Box"
+        android:id="@+id/username_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
         android:layout_marginTop="244dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Password_Text_Box"
+        android:id="@+id/password_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
         android:layout_marginTop="20dp"
@@ -36,9 +36,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Username_Text_Box" />
+        app:layout_constraintTop_toBottomOf="@id/username_text_box" />
 
     <Button
+        android:id="@+id/attempt_log_in_button"
         android:layout_width="400dp"
         android:layout_height="70dp"
         android:layout_marginTop="48dp"
@@ -47,10 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password_Text_Box" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text_box" />
+
+    <Button
+        android:id="@+id/go_to_sign_up_page_button"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/sign_up"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/attempt_log_in_button" />
 
     <TextView
-        android:id="@+id/Tune_Trade_Title"
+        android:id="@+id/tune_trade_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tune_trade"
@@ -60,10 +73,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
- />
+        />
 
     <TextView
-        android:id="@+id/Tune_Trade_Logo_Placeholder"
+        android:id="@+id/tune_trade_logo_placeholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
