@@ -3,4 +3,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
     <string name="tune_trade">Tune Trade</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
 </resources>
