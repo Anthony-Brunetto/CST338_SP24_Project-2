@@ -29,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.goToSignUpPageButton.setOnClickListener(new View.OnClickListener() {
-            // TODO: implement onClick to open sign up page
             @Override
             public void onClick(View v) {
-
+                // TODO: Start sign up page activity
             }
         });
     }
