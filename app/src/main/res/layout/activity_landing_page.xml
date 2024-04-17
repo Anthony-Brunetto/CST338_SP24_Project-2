@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LandingPage"
+    android:background="@color/black">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,11 +17,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="35sp"
-        android:id="@+id/Welcome_text_Textview"/>
+        android:id="@+id/Welcome_text_Textview"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="100sp"
+        android:layout_width="500dp"
+        android:layout_height="70sp"
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -31,11 +34,11 @@
         android:id="@+id/Vinyl_button"
         android:outlineSpotShadowColor="@color/black"
         android:shadowColor="@color/black"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="100sp"
+        android:layout_width="500dp"
+        android:layout_height="70sp"
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -46,13 +49,13 @@
         android:id="@+id/Instrument_button"
         android:outlineSpotShadowColor="@color/black"
         android:shadowColor="@color/black"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         />
 
     <Button
         android:id="@+id/Music_Player_button"
-        android:layout_width="250dp"
-        android:layout_height="100sp"
+        android:layout_width="500dp"
+        android:layout_height="70sp"
         android:layout_marginTop="60dp"
         android:text="@string/music_players"
         android:textSize="30sp"
@@ -62,18 +65,45 @@
         app:layout_constraintTop_toBottomOf="@+id/Instrument_button"
         android:outlineSpotShadowColor="@color/black"
         android:shadowColor="@color/black"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:hint="@string/tune_trade1"
+        android:layout_marginTop="200dp"
+        android:text="@string/tune_trade2"
+        android:textColor="@color/white"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Music_Player_button" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/log_out"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Music_Player_button"
+        android:id="@+id/Logout_button_LandingPage"
+        />
+
+    <Button
+        android:id="@+id/Admin_Button_LandingPage"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/admin_settings1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Music_Player_button"
+        android:visibility="invisible"
+        tools:visibility="visible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
