@@ -2,6 +2,7 @@ package com.example.tune_trade;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -34,5 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 // TODO: Start sign up page activity
             }
         });
+    }
+
+    public static Intent MainActivityIntentFactory(Context context) {
+        Intent intent = new Intent(context, LoginPageActivity.class);
+        return intent;
     }
 }

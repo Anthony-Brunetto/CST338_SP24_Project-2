@@ -25,8 +25,8 @@ public class LandingPage extends AppCompatActivity {
         binding.LogoutButtonLandingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
-//                startActivity(intent);
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
             }
         });
 
@@ -35,10 +35,10 @@ public class LandingPage extends AppCompatActivity {
         
     }
 
-//    public static Intent LandingPageIntentFactory(Context context) {
-//        Intent intent = new Intent(context, MainActivity.class);
-//        return intent;
-//    }
+    public static Intent LandingPageIntentFactory(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
+    }
 }
 
 
