@@ -36,7 +36,7 @@ public class LandingPage extends AppCompatActivity {
     }
 
     public static Intent LandingPageIntentFactory(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, LandingPage.class);
         return intent;
     }
 }
