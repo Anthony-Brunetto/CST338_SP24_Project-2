@@ -25,6 +25,7 @@ public class LoginPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = binding.usernameTextBox.getText().toString();
                 String password = binding.passwordTextBox.getText().toString();
+
                 // TODO: Validate user/pass w/ db
             }
         });

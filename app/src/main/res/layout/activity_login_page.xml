@@ -12,7 +12,7 @@
         android:id="@+id/username_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="92dp"
         android:gravity="center"
         android:hint="@string/enter_username"
         android:inputType="text"
@@ -21,13 +21,13 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tune_trade_logo_placeholder" />
 
     <EditText
         android:id="@+id/password_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:hint="@string/enter_password"
         android:inputType="textPassword"
@@ -36,17 +36,17 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username_text_box" />
+        app:layout_constraintTop_toBottomOf="@+id/username_text_box" />
 
     <Button
         android:id="@+id/attempt_log_in_button"
         android:layout_width="400dp"
         android:layout_height="70dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="@string/log_in"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_text_box" />
 
@@ -54,7 +54,7 @@
         android:id="@+id/go_to_sign_up_page_button"
         android:layout_width="400dp"
         android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/sign_up"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
