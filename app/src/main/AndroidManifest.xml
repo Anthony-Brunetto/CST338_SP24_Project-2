@@ -13,13 +13,7 @@
         android:theme="@style/Theme.Tune_Trade"
         tools:targetApi="31">
         <activity
-            android:name=".LoginPageActivity"
-            android:exported="false" />
-        <activity
             android:name=".LandingPage"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
