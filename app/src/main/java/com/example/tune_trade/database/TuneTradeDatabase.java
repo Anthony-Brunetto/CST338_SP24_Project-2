@@ -16,7 +16,7 @@ import com.example.tune_trade.database.entities.User;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Product.class, User.class}, version = 2, exportSchema = false)
+@Database(entities = {Product.class, User.class}, version = 1, exportSchema = false)
 public abstract class TuneTradeDatabase extends RoomDatabase {
 
     public static final String productTable = "productTable";
