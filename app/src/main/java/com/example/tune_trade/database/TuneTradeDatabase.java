@@ -51,7 +51,7 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(()->{
                 UserDAO dao = INSTANCE.userDAO();
                 dao.deleteAll();
-                User admin = new User("admin1", "admin1", "admin's house");
+                User admin = new User("admin2", "admin2", "admin's house");
                 admin.setAdmin(true);
                 dao.insert(admin);
                 User testuser1 = new User("testuser1", "testuser1", "testuser1's house");
