@@ -5,4 +5,11 @@
     <string name="tune_trade">Tune Trade</string>
     <string name="enter_password">Enter Password</string>
     <string name="enter_username">Enter Username</string>
+    <string name="welcome_username">Welcome {Username}</string>
+    <string name="vinyls">Vinyls</string>
+    <string name="instruments">Instruments</string>
+    <string name="music_player">Music Player</string>
+    <string name="tune_trade_Watermark">Tune Trade</string>
+    <string name="log_out">Log Out</string>
+    <string name="admin_settings">Admin settings</string>
 </resources>

@@ -25,6 +25,10 @@ public class LoginPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = binding.usernameTextBox.getText().toString();
                 String password = binding.passwordTextBox.getText().toString();
+                Intent intent = LandingPage.LandingPageIntentFactory(getApplicationContext());
+                startActivity(intent);
+
+
                 // TODO: Validate user/pass w/ db
             }
         });
