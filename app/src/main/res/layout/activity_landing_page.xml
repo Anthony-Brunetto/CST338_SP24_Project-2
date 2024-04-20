@@ -103,7 +103,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Music_Player_button"
         android:visibility="invisible"
-        tools:visibility="visible"/>
+        tools:visibility="visible"
+       />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
