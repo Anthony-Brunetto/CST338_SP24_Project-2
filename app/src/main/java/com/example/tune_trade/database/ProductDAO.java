@@ -1,13 +1,13 @@
-package com.example.tune_trade.Database;
+package com.example.tune_trade.database;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.tune_trade.Database.entities.Product;
+import com.example.tune_trade.database.entities.Product;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface ProductDAO {
@@ -15,5 +15,5 @@ public interface ProductDAO {
     void insert(Product product);
 
     @Query("SELECT * from " + TuneTradeDatabase.productTable)
-    ArrayList<Product> getAllRecords();
+    List<Product> getAllRecords();
 }

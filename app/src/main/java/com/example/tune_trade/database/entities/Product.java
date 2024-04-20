@@ -1,9 +1,9 @@
-package com.example.tune_trade.Database.entities;
+package com.example.tune_trade.database.entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.tune_trade.Database.TuneTradeDatabase;
+import com.example.tune_trade.database.TuneTradeDatabase;
 
 import java.util.Objects;
 

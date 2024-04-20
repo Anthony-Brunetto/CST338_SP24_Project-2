@@ -1,9 +1,9 @@
-package com.example.tune_trade.Database;
+package com.example.tune_trade.database;
 
 import android.app.Application;
 import android.util.Log;
 
-import com.example.tune_trade.Database.entities.Product;
+import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
 
 import java.util.ArrayList;
@@ -16,18 +16,41 @@ public class TuneTradeRepository {
 
     private ArrayList<Product> allLogs;
 
-    public TuneTradeRepository(Application application) {
+    private static TuneTradeRepository repository;
+
+    private TuneTradeRepository(Application application) {
         TuneTradeDatabase db = TuneTradeDatabase.getDatabase(application);
         this.productDAO = db.productDAO();
-        this.allLogs = this.productDAO.getAllRecords();
+        this.allLogs = (ArrayList<Product>) this.productDAO.getAllRecords();
     }
 
-    public ArrayList<Product> getAllLogs() {
+    public static TuneTradeRepository getRepository(Application application) {
+        if (repository != null) {
+            return repository;
+        }
+        Future<TuneTradeRepository> future = TuneTradeDatabase.databaseWriteExecutor.submit(
+                new Callable<TuneTradeRepository>() {
+                    @Override
+                    public TuneTradeRepository call() throws Exception {
+                        return new TuneTradeRepository(application);
+                    }
+                }
+        );
+
+        try {
+            future.get();
+        } catch (InterruptedException | ExecutionException e) {
+            Log.d(MainActivity.TAG, "Problem getting TuneTradeRepository, thread error.");
+        }
+        return null;
+    }
+
+    public ArrayList<Product> getAllProducts() { // was getAllLogs
         Future<ArrayList<Product>> future = TuneTradeDatabase.databaseWriteExecutor.submit(
                 new Callable<ArrayList<Product>>() {
                     @Override
                     public ArrayList<Product> call() throws Exception {
-                        return productDAO.getAllRecords();
+                        return (ArrayList<Product>) productDAO.getAllRecords();
                     }
                 }
         );

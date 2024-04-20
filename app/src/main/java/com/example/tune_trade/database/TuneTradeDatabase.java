@@ -1,4 +1,4 @@
-package com.example.tune_trade.Database;
+package com.example.tune_trade.database;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.tune_trade.Database.entities.Product;
+import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
 
 import java.util.concurrent.ExecutorService;
