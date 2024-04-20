@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">Tune_Trade</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="tune_trade">Tune Trade</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter Username</string>
     <string name="welcome_username">Welcome {Username}</string>
     <string name="vinyls">Vinyls</string>
     <string name="instruments">Instruments</string>
-    <string name="music_players">Music Players</string>
-    <string name="log_out">LOG OUT</string>
-    <string name="admin_settings">admin_settings</string>
-    <string name="admin_settings1">ADMIN SETTINGS</string>
-    <string name="tune_trade2">Tune trade</string>
+    <string name="music_player">Music Player</string>
+    <string name="tune_trade_Watermark">Tune Trade</string>
+    <string name="log_out">Log Out</string>
+    <string name="admin_settings">Admin settings</string>
 </resources>
