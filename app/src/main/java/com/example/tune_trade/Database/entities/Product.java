@@ -3,9 +3,11 @@ package com.example.tune_trade.Database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.tune_trade.Database.TuneTradeDatabase;
+
 import java.util.Objects;
 
-@Entity(tableName = "product")
+@Entity(tableName = TuneTradeDatabase.productTable)
 public class Product {
     @PrimaryKey(autoGenerate = true)
     private int id;
