@@ -11,14 +11,16 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
+import com.example.tune_trade.database.entities.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Product.class}, version = 1, exportSchema = false)
+@Database(entities = {Product.class, User.class}, version = 2, exportSchema = false)
 public abstract class TuneTradeDatabase extends RoomDatabase {
 
     public static final String productTable = "productTable";
+    public static final String USER_TABLE = "userTable";
 
     private static volatile TuneTradeDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -46,9 +48,19 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             Log.i(MainActivity.TAG, "DATABASE CREATED");
-            // TODO: add database WriteExecutor.execute(()->{...})
+            databaseWriteExecutor.execute(()->{
+                UserDAO dao = INSTANCE.userDAO();
+                dao.deleteAll();
+                User admin = new User("admin1", "admin1", "admin's house");
+                admin.setAdmin(true);
+                dao.insert(admin);
+                User testuser1 = new User("testuser1", "testuser1", "testuser1's house");
+                dao.insert(testuser1);
+            });
         }
     };
 
     public abstract ProductDAO productDAO();
+
+    public abstract UserDAO userDAO();
 }

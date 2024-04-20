@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
+import com.example.tune_trade.database.entities.User;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -12,7 +13,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 public class TuneTradeRepository {
-    private ProductDAO productDAO;
+    private final ProductDAO productDAO;
+
+    private final UserDAO userDAO;
 
     private ArrayList<Product> allLogs;
 
@@ -21,6 +24,7 @@ public class TuneTradeRepository {
     private TuneTradeRepository(Application application) {
         TuneTradeDatabase db = TuneTradeDatabase.getDatabase(application);
         this.productDAO = db.productDAO();
+        this.userDAO = db.userDAO();
         this.allLogs = (ArrayList<Product>) this.productDAO.getAllRecords();
     }
 
@@ -67,6 +71,12 @@ public class TuneTradeRepository {
     public void insertProduct(Product product) {
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             productDAO.insert(product);
+        });
+    }
+
+    public void insertUser(User... user) {
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            userDAO.insert(user);
         });
     }
 }
