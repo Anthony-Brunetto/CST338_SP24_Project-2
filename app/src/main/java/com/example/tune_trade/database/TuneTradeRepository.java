@@ -86,4 +86,12 @@ public class TuneTradeRepository {
     public LiveData<User> getUserByUsername(String username) {
         return userDAO.getUserByUserName(username);
     }
+
+    public LiveData<User> getUserByUserId(int userId) {
+        return userDAO.getUserByUserId(userId);
+    }
+
+    public LiveData<User> getUserByIsAdmin(boolean isAdmin) {
+        return userDAO.getUserByIsAdmin(isAdmin);
+    }
 }
