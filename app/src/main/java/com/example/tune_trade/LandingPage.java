@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityLandingPageBinding;
 
 import java.util.Locale;
 
 public class LandingPage extends AppCompatActivity {
     ActivityLandingPageBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class LandingPage extends AppCompatActivity {
         
     }
 
-    public static Intent LandingPageIntentFactory(Context context) {
+    public static Intent landingPageIntentFactory(Context context, User user) {
         Intent intent = new Intent(context, LandingPage.class);
         return intent;
     }

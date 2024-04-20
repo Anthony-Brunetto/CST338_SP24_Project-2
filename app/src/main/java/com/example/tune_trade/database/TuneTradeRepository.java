@@ -3,6 +3,8 @@ package com.example.tune_trade.database;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
 import com.example.tune_trade.database.entities.User;
@@ -36,7 +38,8 @@ public class TuneTradeRepository {
                 new Callable<TuneTradeRepository>() {
                     @Override
                     public TuneTradeRepository call() throws Exception {
-                        return new TuneTradeRepository(application);
+                        repository = new TuneTradeRepository(application);
+                        return repository;
                     }
                 }
         );
@@ -78,5 +81,9 @@ public class TuneTradeRepository {
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             userDAO.insert(user);
         });
+    }
+
+    public LiveData<User> getUserByUsername(String username) {
+        return userDAO.getUserByUserName(username);
     }
 }
