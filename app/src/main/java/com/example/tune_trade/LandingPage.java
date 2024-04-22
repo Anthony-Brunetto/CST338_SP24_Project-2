@@ -120,10 +120,6 @@ public class LandingPage extends AppCompatActivity {
             Intent intent = LoginPageActivity.loginPageIntentFactory(getApplicationContext());
             startActivity(intent);
         }
-//        if(!loggedInIsAdmin){
-//            Intent intent = LoginPageActivity.loginPageIntentFactory(getApplicationContext());
-//            startActivity(intent);
-//        }
         binding.WelcomeTextTextview.setText("Welcome " + loggedInUserName);
         if(loggedInIsAdmin){
             binding.AdminButtonLandingPage.setVisibility(View.VISIBLE);
