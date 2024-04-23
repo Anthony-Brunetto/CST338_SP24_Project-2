@@ -12,4 +12,5 @@
     <string name="tune_trade_Watermark">Tune Trade</string>
     <string name="log_out">Log Out</string>
     <string name="admin_settings">Admin settings</string>
+    <string name="enter_address">Enter Address</string>
 </resources>
