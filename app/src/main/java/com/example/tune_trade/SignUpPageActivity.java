@@ -35,9 +35,6 @@ public class SignUpPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signup();
-                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
-                startActivity(intent);
-
             }
         });
     }
@@ -45,12 +42,20 @@ public class SignUpPageActivity extends AppCompatActivity {
     private void signup(){
         String username = binding.usernameSignupTextBox.getText().toString();
         String password = binding.passwordSignupTextBox.getText().toString();
+        String re_enter_password = binding.reEnterPasswordSignupTextBox.getText().toString();
         String Address = binding.addressSignupTextBox.getText().toString();
+        boolean pass_not_match = true;
 
         if (username.isEmpty() || password.isEmpty() || Address.isEmpty()) {
             Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
             return;
         }
+
+            if (!password.equals(re_enter_password)) {
+                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_LONG).show();
+                return;
+            }
+
 
         User user = new User(username, password, Address);
         user.setUsername(username);
@@ -59,8 +64,8 @@ public class SignUpPageActivity extends AppCompatActivity {
         repository.insertUser(user);
 
         Toast.makeText(this, "User Added", Toast.LENGTH_SHORT).show();
-
-
+        Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+        startActivity(intent);
     }
 
     public static Intent SignUpPageIntentFactory(Context context){
