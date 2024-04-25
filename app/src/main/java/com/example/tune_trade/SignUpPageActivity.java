@@ -44,9 +44,9 @@ public class SignUpPageActivity extends AppCompatActivity {
         String password = binding.passwordSignupTextBox.getText().toString();
         String re_enter_password = binding.reEnterPasswordSignupTextBox.getText().toString();
         String Address = binding.addressSignupTextBox.getText().toString();
-        boolean pass_not_match = true;
 
-        if (username.isEmpty() || password.isEmpty() || Address.isEmpty()) {
+
+        if (username.isEmpty() || password.isEmpty() || Address.isEmpty() || re_enter_password.isEmpty()) {
             Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
             return;
         }
