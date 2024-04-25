@@ -37,6 +37,11 @@ public class SignUpPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signup();
+
+                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+                startActivity(intent);
+
+
             }
         });
     }
@@ -47,11 +52,12 @@ public class SignUpPageActivity extends AppCompatActivity {
         String re_enter_password = binding.reEnterPasswordSignupTextBox.getText().toString();
         String Address = binding.addressSignupTextBox.getText().toString();
 
+        if (username.isEmpty() || password.isEmpty() || Address.isEmpty()) {
 
-        if (username.isEmpty() || password.isEmpty() || Address.isEmpty() || re_enter_password.isEmpty()) {
             Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
             if (!password.equals(re_enter_password)) {
                 Toast.makeText(this, "Passwords don't match", Toast.LENGTH_LONG).show();
@@ -62,7 +68,7 @@ public class SignUpPageActivity extends AppCompatActivity {
                 public void onChanged(User user) {
                     if(user != null){
                         Log.d("UserRepository", "User found: " + user.getUsername());
-                        Toast.makeText(SignUpPageActivity.this, "Username is already taken, please choose a different username", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpPageActivity.this, "Username is already taken, please choose a different username", Toast.LENGTH_LONG).show();
                     }
                     else{
                         Log.d("UserRepository", "User not found");
