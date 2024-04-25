@@ -13,5 +13,5 @@
     <string name="log_out">Log Out</string>
     <string name="admin_settings">Admin settings</string>
     <string name="enter_address">Enter Address</string>
-    <string name="re_enter_password">Re-Enter Password</string>
+    <string name="re_enter_password">Re-enter Password</string>
 </resources>
