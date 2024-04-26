@@ -8,12 +8,11 @@
     tools:context=".SignUpPageActivity"
     android:background="@color/black">
 
-
     <EditText
         android:id="@+id/username_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="92dp"
         android:gravity="center"
         android:hint="@string/enter_username"
         android:inputType="text"
@@ -28,7 +27,7 @@
         android:id="@+id/password_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:hint="@string/enter_password"
         android:inputType="textPassword"
@@ -39,13 +38,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_signup_text_box" />
 
+
     <EditText
-        android:id="@+id/reEnter_password_signup_text_box"
+        android:id="@+id/re_enter_password_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
-        android:hint="@string/enter_password"
+        android:hint="@string/re_enter_password"
         android:inputType="textPassword"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -58,7 +58,7 @@
         android:id="@+id/address_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="128dp"
         android:gravity="center"
         android:hint="@string/enter_address"
         android:inputType="text"
@@ -73,7 +73,7 @@
         android:id="@+id/sign_up_button"
         android:layout_width="400dp"
         android:layout_height="70dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="248dp"
         android:text="@string/sign_up"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
