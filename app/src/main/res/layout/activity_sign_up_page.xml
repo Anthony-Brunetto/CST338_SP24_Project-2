@@ -43,7 +43,7 @@
         android:id="@+id/re_enter_password_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:hint="@string/re_enter_password"
         android:inputType="textPassword"
@@ -58,7 +58,7 @@
         android:id="@+id/address_signup_text_box"
         android:layout_width="275dp"
         android:layout_height="75dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:hint="@string/enter_address"
         android:inputType="text"
@@ -67,7 +67,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_signup_text_box" />
+        app:layout_constraintTop_toBottomOf="@+id/re_enter_password_signup_text_box" />
 
     <Button
         android:id="@+id/sign_up_button"
