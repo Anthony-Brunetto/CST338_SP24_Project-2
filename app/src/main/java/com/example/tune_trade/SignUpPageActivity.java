@@ -7,15 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 
 import com.example.tune_trade.database.TuneTradeRepository;
-import com.example.tune_trade.database.UserDAO;
 import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivitySignUpPageBinding;
 
