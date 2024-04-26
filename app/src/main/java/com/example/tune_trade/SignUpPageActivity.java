@@ -23,6 +23,7 @@ public class SignUpPageActivity extends AppCompatActivity {
 
     private TuneTradeRepository repository;
     ActivitySignUpPageBinding binding;
+    private boolean usernameChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,20 +38,23 @@ public class SignUpPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signup();
-
-                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
-                startActivity(intent);
+//                Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
+//                startActivity(intent);
 
 
             }
         });
     }
 
-    private void signup(){
+    private void signup() {
+        if(usernameChecked){
+            return;
+        }
         String username = binding.usernameSignupTextBox.getText().toString();
         String password = binding.passwordSignupTextBox.getText().toString();
         String re_enter_password = binding.reEnterPasswordSignupTextBox.getText().toString();
         String Address = binding.addressSignupTextBox.getText().toString();
+
 
         if (username.isEmpty() || password.isEmpty() || Address.isEmpty()) {
 
@@ -59,30 +63,34 @@ public class SignUpPageActivity extends AppCompatActivity {
         }
 
 
-            if (!password.equals(re_enter_password)) {
-                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_LONG).show();
-                return;
-            }
-            repository.getUserByUsername(username).observe(this, new Observer<User>() {
-                @Override
-                public void onChanged(User user) {
-                    if(user != null){
+        if (!password.equals(re_enter_password)) {
+            Toast.makeText(this, "Passwords don't match", Toast.LENGTH_LONG).show();
+            return;
+        }
+        repository.getUserByUsername(username).observe(this, new Observer<User>() {
+            @Override
+            public void onChanged(User user) {
+                    if (user != null) {
+                        if(usernameChecked){
+                            return;
+                        }
                         Log.d("UserRepository", "User found: " + user.getUsername());
-                        Toast.makeText(SignUpPageActivity.this, "Username is already taken, please choose a different username", Toast.LENGTH_LONG).show();
-                    }
-                    else{
+                        Toast.makeText(SignUpPageActivity.this, "Username is already taken, please choose a different username", Toast.LENGTH_SHORT).show();
+                    } else {
                         Log.d("UserRepository", "User not found");
                         User user1 = new User(username, password, Address);
                         user1.setUsername(username);
                         user1.setPassword(password);
                         user1.setAddress(Address);
                         repository.insertUser(user1);
-                        Toast.makeText(SignUpPageActivity.this, "User Added", Toast.LENGTH_LONG).show();
+                        usernameChecked = true;
+                        Toast.makeText(SignUpPageActivity.this, "User Added", Toast.LENGTH_SHORT).show();
                         Intent intent = MainActivity.MainActivityIntentFactory(getApplicationContext());
                         startActivity(intent);
                     }
-                }
-            });
+            }
+
+        });
     }
 
     public static Intent SignUpPageIntentFactory(Context context){

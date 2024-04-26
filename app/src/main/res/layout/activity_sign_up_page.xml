@@ -45,7 +45,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:hint="@string/enter_address"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
