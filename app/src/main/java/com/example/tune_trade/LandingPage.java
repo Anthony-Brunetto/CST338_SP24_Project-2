@@ -135,6 +135,14 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        binding.AdminButtonLandingPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void getUsernameFromSharedPreferences() {

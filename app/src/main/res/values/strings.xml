@@ -14,4 +14,11 @@
     <string name="admin_settings">Admin settings</string>
     <string name="enter_address">Enter Address</string>
     <string name="re_enter_password">Re-enter Password</string>
+    <string name="administrator_settings">Administrator Settings</string>
+    <string name="add_an_admin_user">Add an admin user</string>
+    <string name="add_discount">Add discount</string>
+    <string name="check_product_count">Check product count</string>
+    <string name="add_products">Add products</string>
+    <string name="remove_products">Remove products</string>
+    <string name="done">Done</string>
 </resources>

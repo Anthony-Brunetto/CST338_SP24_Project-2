@@ -10,8 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tune_Trade"
-        >
+        android:theme="@style/Theme.Tune_Trade">
+        <activity
+            android:name=".AdminSettingsActivity"
+            android:exported="false" />
         <activity
             android:name=".SignUpPageActivity"
             android:exported="false" />

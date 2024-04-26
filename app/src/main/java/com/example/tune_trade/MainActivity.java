@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO: Start sign up page activity
-                Intent intent = SignUpPageActivity.SignUpPageIntentFactory(getApplicationContext());
+                Intent intent = SignUpPageActivity.SignUpPageIntentFactory(getApplicationContext(),false);
                 startActivity(intent);
             }
         });

@@ -38,7 +38,7 @@ public class LoginPageActivity extends AppCompatActivity {
         binding.goToSignUpPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = SignUpPageActivity.SignUpPageIntentFactory(getApplicationContext());
+                Intent intent = SignUpPageActivity.SignUpPageIntentFactory(getApplicationContext(), false);
                 startActivity(intent);
             }
         });
