@@ -21,4 +21,14 @@
     <string name="add_products">Add products</string>
     <string name="remove_products">Remove products</string>
     <string name="done">Done</string>
+    <string name="enter_the_name_of_the_product">Enter the name of the product</string>
+    <string name="how_many_items">How many items?</string>
+    <string name="what_is_the_price">What is the price?</string>
+    <string name="description_of_product">Description of product</string>
+    <string name="add_product">Add Product</string>
+    <string name="music_players">Music Players</string>
+    <string name="vinyl">Vinyl</string>
+    <string name="instruments_addproducts">Instruments</string>
+    <string name="add_product_adminpage">Add Product</string>
+    <string name="quantity">Quantity</string>
 </resources>

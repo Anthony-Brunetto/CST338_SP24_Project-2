@@ -39,6 +39,15 @@ public class AdminSettingsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.addProductButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AddProductActivity.AddProductsIntentFactory(getApplicationContext());
+                startActivity(intent);
+
+            }
+        });
     }
 
 
