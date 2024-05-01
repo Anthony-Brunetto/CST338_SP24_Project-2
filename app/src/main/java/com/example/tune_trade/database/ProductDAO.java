@@ -19,6 +19,12 @@ public interface ProductDAO {
     @Query("SELECT * from " + TuneTradeDatabase.productTable)
     List<Product> getAllRecords();
 
-//    @Query("SELECT * FROM " + TuneTradeDatabase.productTable + " WHERE category == :category")
-//    LiveData<User> getProductByCategory(String category);
+    @Query("SELECT * FROM " + TuneTradeDatabase.productTable + " WHERE category == :category")
+    LiveData<Product> getProductsByCategory(String category);
+
+    @Query("SELECT * FROM " + TuneTradeDatabase.productTable + " WHERE category == :category")
+    LiveData<List<Product>> getProductsByCategoryLiveData(String category);
+
+    @Query("SELECT * FROM " + TuneTradeDatabase.productTable + " WHERE category == :category")
+    List<Product> getProductsByCategoryList(String category);
 }

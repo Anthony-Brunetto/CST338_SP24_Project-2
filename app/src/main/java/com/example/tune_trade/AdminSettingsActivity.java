@@ -32,6 +32,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
 
         repository = TuneTradeRepository.getRepository(getApplication());
 
+
         binding.addAdminUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

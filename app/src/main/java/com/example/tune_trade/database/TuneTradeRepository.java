@@ -10,6 +10,7 @@ import com.example.tune_trade.MainActivity;
 import com.example.tune_trade.database.entities.User;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -75,6 +76,10 @@ public class TuneTradeRepository {
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             productDAO.insert(product);
         });
+    }
+
+    public LiveData<List<Product>> getProductsByCategory(String category) {
+        return productDAO.getProductsByCategoryLiveData(category);
     }
 
     public void insertUser(User... user) {

@@ -135,6 +135,14 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        binding.InstrumentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = InstrumentsPageActivity.InstrumentsPageIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
         binding.AdminButtonLandingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

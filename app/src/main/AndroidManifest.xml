@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tune_Trade">
         <activity
+            android:name=".InstrumentsPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddProductActivity"
             android:exported="false" />
         <activity
