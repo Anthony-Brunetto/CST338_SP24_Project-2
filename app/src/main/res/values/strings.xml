@@ -31,4 +31,5 @@
     <string name="instruments_addproducts">Instruments</string>
     <string name="add_product_adminpage">Add Product</string>
     <string name="quantity">Quantity</string>
+    <string name="cart">Cart</string>
 </resources>

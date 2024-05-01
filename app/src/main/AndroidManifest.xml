@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tune_Trade">
         <activity
+            android:name=".MusicPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VinylsActivity"
+            android:exported="false" />
+        <activity
             android:name=".InstrumentsPageActivity"
             android:exported="false" />
         <activity

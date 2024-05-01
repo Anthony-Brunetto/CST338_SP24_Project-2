@@ -14,4 +14,17 @@
         android:textColor="@color/white"
         android:textSize="25sp"/>
 
+    <Button
+        android:id="@+id/recyclerItemAddCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Add to cart"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="__________________________________________________________"
+    />
+
 </LinearLayout>

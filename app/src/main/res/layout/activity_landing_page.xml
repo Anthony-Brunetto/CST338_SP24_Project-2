@@ -79,32 +79,42 @@
         app:layout_constraintTop_toBottomOf="@+id/Music_Player_button" />
 
     <Button
+        android:id="@+id/Logout_button_LandingPage"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="36dp"
         android:text="@string/log_out"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Music_Player_button"
-        android:id="@+id/Logout_button_LandingPage"
-        />
+        app:layout_constraintTop_toBottomOf="@id/Music_Player_button" />
+
+    <Button
+        android:id="@+id/Cart_button_LandingPage"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="128dp"
+        android:text="@string/cart"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Music_Player_button" />
 
     <Button
         android:id="@+id/Admin_Button_LandingPage"
         android:layout_width="150dp"
         android:layout_height="70dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="108dp"
         android:text="@string/admin_settings"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Music_Player_button"
-        android:visibility="invisible"
-        tools:visibility="visible"
-       />
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

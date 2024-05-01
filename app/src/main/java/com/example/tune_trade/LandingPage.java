@@ -143,6 +143,22 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        binding.VinylButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = VinylsActivity.VinylsIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
+        binding.MusicPlayerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = MusicPlayerActivity.MusicPlayersIntentFactory(getApplicationContext());
+                startActivity(intent);
+            }
+        });
+
         binding.AdminButtonLandingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
