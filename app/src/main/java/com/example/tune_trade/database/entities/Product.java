@@ -7,7 +7,7 @@ import com.example.tune_trade.database.TuneTradeDatabase;
 
 import java.util.Objects;
 
-@Entity(tableName = TuneTradeDatabase.productTable)
+@Entity(tableName = TuneTradeDatabase.PRODUCT_TABLE)
 public class Product {
     @PrimaryKey(autoGenerate = true)
     private int id;

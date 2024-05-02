@@ -19,8 +19,10 @@ import java.util.concurrent.Executors;
 @Database(entities = {Product.class, User.class}, version = 1, exportSchema = false)
 public abstract class TuneTradeDatabase extends RoomDatabase {
 
-    public static final String productTable = "productTable";
+    public static final String PRODUCT_TABLE = "productTable";
     public static final String USER_TABLE = "userTable";
+
+    public static final String CART_TABLE = "cartTable";
 
     private static volatile TuneTradeDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
