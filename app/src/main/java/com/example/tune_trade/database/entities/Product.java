@@ -22,12 +22,15 @@ public class Product {
 
     private String category;
 
+    private double discount;
+
     public Product(String name, int count, double price, String description, String category) {
         this.name = name;
         this.count = count;
         this.price = price;
         this.description = description;
         this.category = category;
+        this.discount = 0.0;
     }
 
     public int getId() {
@@ -76,6 +79,14 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 
     @Override

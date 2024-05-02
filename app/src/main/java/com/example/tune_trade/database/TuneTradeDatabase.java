@@ -65,6 +65,11 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
                 User testuser1 = new User("testuser1", "testuser1", "testuser1's house");
                 Cart testuser1Cart = new Cart(userDao.insert(testuser1));
                 cartDao.insert(testuser1Cart);
+                Product globalDiscount = new Product("GLOBAL DISCOUNT",
+                        -1,
+                        0.00,
+                        "Keeps track of the global discount on products",
+                        null);
                 Product kingKruleAlbum = new Product("6 Feet Beneath The Moon - King Krule",
                         4,
                         25.50,
@@ -80,6 +85,7 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
                         44.99,
                         "Y1 is not only a Walkman mp3 player, but also an audiobook player. It provides A-B repeat, bookmark and Speed options, which greatly facilitates your listening to audio book.",
                         "Music Players");
+                productDAO.insert(globalDiscount);
                 productDAO.insert(kingKruleAlbum);
                 productDAO.insert(gibson);
                 productDAO.insert(walkman);

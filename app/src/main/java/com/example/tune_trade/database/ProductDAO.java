@@ -15,7 +15,7 @@ public interface ProductDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Product product);
 
-    @Query("SELECT * from " + TuneTradeDatabase.PRODUCT_TABLE)
+    @Query("SELECT * from " + TuneTradeDatabase.PRODUCT_TABLE + " LIMIT -1 OFFSET 1")
     List<Product> getAllRecords();
 
     @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE category == :category")
@@ -35,4 +35,7 @@ public interface ProductDAO {
 
     @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE name == :name")
     LiveData<Product> getProductsByProductName(String name);
+
+    @Query("UPDATE " + TuneTradeDatabase.PRODUCT_TABLE + " SET discount = :discount WHERE name == :name")
+    void updateProductDiscountById(double discount, String name);
 }
