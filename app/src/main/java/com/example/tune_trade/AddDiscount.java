@@ -46,11 +46,11 @@ public class AddDiscount extends AppCompatActivity {
         String productName = binding.nameProductNameTextView.getText().toString();
         String discount = binding.percentageDiscountTextView.getText().toString();
         int i_discount;
-        if (productName.isEmpty()) { // TODO: Fix this not working for some reason?
+        if (productName.isEmpty()) {
             Toast.makeText(AddDiscount.this, "Product Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (discount.isEmpty()) { // TODO: procs when product field is still empty for some reason?
+        if (discount.isEmpty()) {
             Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
         }
