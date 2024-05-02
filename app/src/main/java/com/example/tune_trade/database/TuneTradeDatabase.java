@@ -67,7 +67,7 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
                 cartDao.insert(testuser1Cart);
                 Product globalDiscount = new Product("GLOBAL DISCOUNT",
                         -1,
-                        0.00,
+                        -1.0,
                         "Keeps track of the global discount on products",
                         null);
                 Product kingKruleAlbum = new Product("6 Feet Beneath The Moon - King Krule",

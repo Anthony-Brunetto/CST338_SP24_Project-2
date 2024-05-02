@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddDiscount"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/Add_discount_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_discount_title"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name_product_name_textView"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="128dp"
+        android:gravity="center"
+        android:hint="@string/enter_the_name_of_the_product"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/percentage_discount_textView"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:hint="@string/enter_percentage_of_discount"
+        android:inputType="number"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_product_name_textView" />
+
+    <Button
+        android:id="@+id/add_discount_to_product_button"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_discount_to_product"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/percentage_discount_textView" />
+
+
+    <EditText
+        android:id="@+id/enter_global_discount_textView"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="84dp"
+        android:gravity="center"
+        android:hint="@string/enter_percentage_of_discount"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_discount_to_product_button" />
+
+    <Button
+        android:id="@+id/addProduct_button"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_global_discount"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enter_global_discount_textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
