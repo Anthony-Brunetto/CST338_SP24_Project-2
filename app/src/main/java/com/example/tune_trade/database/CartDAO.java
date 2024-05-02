@@ -23,4 +23,7 @@ public interface CartDAO {
 
     @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
     void updateProductsByUserId(String products, String userId);
+
+    @Query("DELETE FROM " + TuneTradeDatabase.CART_TABLE)
+    void deleteAll();
 }

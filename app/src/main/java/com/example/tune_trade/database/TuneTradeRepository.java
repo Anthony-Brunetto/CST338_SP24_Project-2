@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
+import com.example.tune_trade.database.entities.Cart;
 import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
 import com.example.tune_trade.database.entities.User;
@@ -20,6 +21,8 @@ public class TuneTradeRepository {
 
     private final UserDAO userDAO;
 
+    private final CartDAO cartDAO;
+
     private ArrayList<Product> allLogs;
 
     private static TuneTradeRepository repository;
@@ -28,6 +31,7 @@ public class TuneTradeRepository {
         TuneTradeDatabase db = TuneTradeDatabase.getDatabase(application);
         this.productDAO = db.productDAO();
         this.userDAO = db.userDAO();
+        this.cartDAO = db.cartDAO();
         this.allLogs = (ArrayList<Product>) this.productDAO.getAllRecords();
     }
 
@@ -85,6 +89,12 @@ public class TuneTradeRepository {
     public void insertUser(User... user) {
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             userDAO.insert(user);
+        });
+    }
+
+    public void insertCart(Cart cart) {
+        TuneTradeDatabase.databaseWriteExecutor.execute(()-> {
+            cartDAO.insert(cart);
         });
     }
 
