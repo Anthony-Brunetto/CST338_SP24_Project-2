@@ -1,9 +1,7 @@
 package com.example.tune_trade;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,23 +10,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.tune_trade.database.ProductDAO;
 import com.example.tune_trade.database.TuneTradeRepository;
-import com.example.tune_trade.database.entities.Product;
-import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityInstrumentsPageBinding;
 import com.example.tune_trade.viewHolder.InstrumentsAdapter;
 import com.example.tune_trade.viewHolder.InstrumentsViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public class InstrumentsPageActivity extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO MAIN ACTIVITY
     private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
-    private TuneTradeRepository repository;
     ActivityInstrumentsPageBinding binding;
     private InstrumentsViewModel instrumentsViewModel;
+
+    TuneTradeRepository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
