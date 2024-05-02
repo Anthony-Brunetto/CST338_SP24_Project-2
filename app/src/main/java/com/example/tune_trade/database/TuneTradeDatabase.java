@@ -79,7 +79,7 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
                         2,
                         44.99,
                         "Y1 is not only a Walkman mp3 player, but also an audiobook player. It provides A-B repeat, bookmark and Speed options, which greatly facilitates your listening to audio book.",
-                        "MusicPlayers");
+                        "Music Players");
                 productDAO.insert(kingKruleAlbum);
                 productDAO.insert(gibson);
                 productDAO.insert(walkman);
