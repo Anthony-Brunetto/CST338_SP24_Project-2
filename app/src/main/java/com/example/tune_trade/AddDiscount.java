@@ -1,7 +1,9 @@
 package com.example.tune_trade;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.LiveData;
 
 import com.example.tune_trade.database.TuneTradeRepository;
+import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityAddDiscountBinding;
 import com.example.tune_trade.databinding.ActivityMainBinding;
@@ -40,20 +43,31 @@ public class AddDiscount extends AppCompatActivity {
     }
 
     private void addDiscountToProduct() {
-        String product = binding.addDiscountToProductButton.getText().toString();
+        String productName = binding.nameProductNameTextView.getText().toString();
         String discount = binding.percentageDiscountTextView.getText().toString();
         int i_discount;
-        if (product.isEmpty()) {
+        if (productName.isEmpty()) { // TODO: Fix this not working for some reason?
             Toast.makeText(AddDiscount.this, "Product Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (discount.isEmpty()) {
+        if (discount.isEmpty()) { // TODO: procs when product field is still empty for some reason?
             Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
-        } else {
-            i_discount = Integer.parseInt(discount);
         }
-        LiveData<User> productObserver = repository.getProductByProductName();
-        // TODO: CONTINUE
+        i_discount = Integer.parseInt(discount) / 100;
+        Log.i(MainActivity.TAG, productName);
+        if (repository.updateProductDiscountByName(i_discount, productName)) {
+            Toast.makeText(AddDiscount.this, "Product discount updated!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(AddDiscount.this, "Problem with updating product discount", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public static Intent AddDiscountIntentFactory(Context context, boolean isAdmin) {
+        if (isAdmin) {
+            Intent intent = new Intent(context, AddDiscount.class);
+            return intent;
+        }
+        return null;
     }
 }

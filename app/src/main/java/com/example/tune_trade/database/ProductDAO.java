@@ -37,5 +37,5 @@ public interface ProductDAO {
     LiveData<Product> getProductsByProductName(String name);
 
     @Query("UPDATE " + TuneTradeDatabase.PRODUCT_TABLE + " SET discount = :discount WHERE name == :name")
-    void updateProductDiscountById(double discount, String name);
+    void updateProductDiscountByName(double discount, String name);
 }

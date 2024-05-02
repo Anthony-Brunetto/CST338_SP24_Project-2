@@ -119,4 +119,16 @@ public class TuneTradeRepository {
     public LiveData<Product> getProductByProductName(String username) {
         return productDAO.getProductsByProductName(username);
     }
+
+    public boolean updateProductDiscountByName(double discount, String name) {
+        try {
+            TuneTradeDatabase.databaseWriteExecutor.execute(() -> {
+                productDAO.updateProductDiscountByName(discount, name);
+            });
+        } catch (Exception e) {
+            Log.i(MainActivity.TAG, e.toString());
+            return false;
+        }
+        return true;
+    }
 }
