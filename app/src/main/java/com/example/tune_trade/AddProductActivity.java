@@ -56,7 +56,6 @@ public class AddProductActivity extends AppCompatActivity {
         product.setCount(count);
         product.setPrice(price);
         product.setDescription(description);
-
         repository.insertProduct(product);
 
         Toast.makeText(this, "Product added successfully", Toast.LENGTH_SHORT).show();

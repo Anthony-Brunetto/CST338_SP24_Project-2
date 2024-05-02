@@ -99,4 +99,14 @@ public class TuneTradeRepository {
     public LiveData<User> getUserByIsAdmin(boolean isAdmin) {
         return userDAO.getUserByIsAdmin(isAdmin);
     }
+
+    public void deleteProductByName(String name){
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            productDAO.deleteProductByName(name);
+        });
+    }
+
+    public LiveData<Product> getProductByProductName(String username) {
+        return productDAO.getProductsByProductName(username);
+    }
 }
