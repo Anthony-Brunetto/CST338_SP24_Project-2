@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tune_Trade">
         <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddDiscount"
             android:exported="false" />
         <activity
