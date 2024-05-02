@@ -11,11 +11,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.tune_trade.database.TuneTradeRepository;
+import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityMusicPlayerBinding;
 import com.example.tune_trade.viewHolder.InstrumentsAdapter;
 import com.example.tune_trade.viewHolder.InstrumentsViewModel;
 
-public class MusicPlayerActivity extends AppCompatActivity {
+public class MusicPlayerActivity extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO MAIN SETTINGS ACTIVITY
+    private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
     private TuneTradeRepository repository;
     ActivityMusicPlayerBinding binding;
     private InstrumentsViewModel instrumentsViewModel;
@@ -45,8 +47,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
 
 
-    public static Intent MusicPlayersIntentFactory(Context context){
+    public static Intent MusicPlayersIntentFactory(Context context, String USER_ID){
         Intent intent = new Intent(context, MusicPlayerActivity.class);
+        intent.putExtra(LANDING_PAGE_USER_ID, USER_ID);
         return intent;
     }
 }

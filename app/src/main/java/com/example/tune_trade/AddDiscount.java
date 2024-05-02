@@ -20,7 +20,9 @@ import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityAddDiscountBinding;
 import com.example.tune_trade.databinding.ActivityMainBinding;
 
-public class AddDiscount extends AppCompatActivity {
+public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO ADMIN SETTINGS ACTIVITY
+    private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
+    private User user = null;
 
     private TuneTradeRepository repository;
 
@@ -91,9 +93,10 @@ public class AddDiscount extends AppCompatActivity {
         }
     }
 
-    public static Intent AddDiscountIntentFactory(Context context, boolean isAdmin) {
+    public static Intent AddDiscountIntentFactory(Context context, boolean isAdmin, String USER_ID) {
         if (isAdmin) {
             Intent intent = new Intent(context, AddDiscount.class);
+            intent.putExtra(LANDING_PAGE_USER_ID, USER_ID);
             return intent;
         }
         return null;

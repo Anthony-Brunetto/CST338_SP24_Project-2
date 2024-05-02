@@ -11,8 +11,10 @@ import android.widget.Toast;
 
 import com.example.tune_trade.database.TuneTradeRepository;
 import com.example.tune_trade.database.entities.Product;
+import com.example.tune_trade.database.entities.User;
 
-public class DeleteProductActivity extends AppCompatActivity {
+public class DeleteProductActivity extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO ADMIN SETTINGS ACTIVITY
+    private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
 
     private TuneTradeRepository repository;
     private boolean nameChecked = false;
@@ -59,7 +61,7 @@ public class DeleteProductActivity extends AppCompatActivity {
                     nameChecked = true;
 
                     Toast.makeText(DeleteProductActivity.this, "Product deleted", Toast.LENGTH_SHORT).show();
-                    Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext());
+                    Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                     startActivity(intent);
 
                 }
@@ -70,8 +72,9 @@ public class DeleteProductActivity extends AppCompatActivity {
 
     }
 
-    public static Intent DeleteProductIntentFactory(Context context){
+    public static Intent DeleteProductIntentFactory(Context context, String USER_ID){
         Intent intent = new Intent(context, DeleteProductActivity.class);
+        intent.putExtra(LANDING_PAGE_USER_ID, USER_ID);
         return intent;
     }
 }

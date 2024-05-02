@@ -13,9 +13,11 @@ import android.widget.Toast;
 
 import com.example.tune_trade.database.TuneTradeRepository;
 import com.example.tune_trade.database.entities.Product;
+import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityAddProductBinding;
 
-public class AddProductActivity extends AppCompatActivity {
+public class AddProductActivity extends AppCompatActivity {// TODO: ADD BACK BUTTON OR GO BACK TO ADMIN SETTINGS ACTIVITY
+    private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
     private TuneTradeRepository repository;
     ActivityAddProductBinding binding;
     private RadioGroup categoryRadioGroup;
@@ -59,12 +61,13 @@ public class AddProductActivity extends AppCompatActivity {
         repository.insertProduct(product);
 
         Toast.makeText(this, "Product added successfully", Toast.LENGTH_SHORT).show();
-        Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext());
+        Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
         startActivity(intent);
     }
 
-    public static Intent AddProductsIntentFactory(Context context){
+    public static Intent AddProductsIntentFactory(Context context, String USER_ID){
         Intent intent = new Intent(context, AddProductActivity.class);
+        intent.putExtra(LANDING_PAGE_USER_ID, USER_ID);
         return intent;
     }
 }

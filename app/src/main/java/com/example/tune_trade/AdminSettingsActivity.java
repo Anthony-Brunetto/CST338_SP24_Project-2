@@ -18,7 +18,8 @@ import com.example.tune_trade.databinding.ActivityAdminSettingsBinding;
 
 import java.util.Objects;
 
-public class AdminSettingsActivity extends AppCompatActivity {
+public class AdminSettingsActivity extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO MAIN ACTIVITY
+    private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
     private TuneTradeRepository repository;
     ActivityAdminSettingsBinding binding;
 
@@ -44,7 +45,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
         binding.addDiscountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = AddDiscount.AddDiscountIntentFactory(getApplicationContext(), true);
+                Intent intent = AddDiscount.AddDiscountIntentFactory(getApplicationContext(), true, getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
@@ -52,7 +53,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
         binding.removeProductsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = DeleteProductActivity.DeleteProductIntentFactory(getApplicationContext());
+                Intent intent = DeleteProductActivity.DeleteProductIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
@@ -60,7 +61,7 @@ public class AdminSettingsActivity extends AppCompatActivity {
         binding.addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = AddProductActivity.AddProductsIntentFactory(getApplicationContext());
+                Intent intent = AddProductActivity.AddProductsIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
 
             }
@@ -69,8 +70,9 @@ public class AdminSettingsActivity extends AppCompatActivity {
 
 
 
-    public static Intent AdminSettingPageIntentFactory(Context context){
+    public static Intent AdminSettingPageIntentFactory(Context context, String USER_ID){
         Intent intent = new Intent(context, AdminSettingsActivity.class);
+        intent.putExtra(LANDING_PAGE_USER_ID, USER_ID);
         return intent;
     }
 }

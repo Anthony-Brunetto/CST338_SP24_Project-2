@@ -36,6 +36,7 @@ public class LandingPage extends AppCompatActivity {
     private static final String LANDING_PAGE_IS_ADMIN = "com.example.tune_trade.LANDING_PAGE_IS_ADMIN";
     static final String SHARED_PREFERENCE_IS_ADMIN_KEY = "com.example.tune_trade.SHARED_PREFERENCE_IS_ADMIN_KEY";
     static final String SHARED_PREFERENCE_IS_ADMIN_VALUE = "com.example.tune_trade.SHARED_PREFERENCE_IS_ADMIN_VALUE";
+    static final String USER = "com.example.tune_trade.USER_OBJECT";
     private TuneTradeRepository repository;
     ActivityLandingPageBinding binding;
 
@@ -138,7 +139,7 @@ public class LandingPage extends AppCompatActivity {
         binding.InstrumentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = InstrumentsPageActivity.InstrumentsPageIntentFactory(getApplicationContext());
+                Intent intent = InstrumentsPageActivity.InstrumentsPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
@@ -146,7 +147,7 @@ public class LandingPage extends AppCompatActivity {
         binding.VinylButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = VinylsActivity.VinylsIntentFactory(getApplicationContext());
+                Intent intent = VinylsActivity.VinylsIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
@@ -154,7 +155,7 @@ public class LandingPage extends AppCompatActivity {
         binding.MusicPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = MusicPlayerActivity.MusicPlayersIntentFactory(getApplicationContext());
+                Intent intent = MusicPlayerActivity.MusicPlayersIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
@@ -162,7 +163,7 @@ public class LandingPage extends AppCompatActivity {
         binding.AdminButtonLandingPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext());
+                Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                 startActivity(intent);
             }
         });
