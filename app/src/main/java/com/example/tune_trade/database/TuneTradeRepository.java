@@ -86,7 +86,7 @@ public class TuneTradeRepository {
         return productDAO.getProductsByCategoryLiveData(category);
     }
 
-    public void insertUser(User... user) {
+    public void insertUser(User user) {
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             userDAO.insert(user);
         });

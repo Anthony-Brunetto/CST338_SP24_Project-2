@@ -60,12 +60,10 @@ public abstract class TuneTradeDatabase extends RoomDatabase {
                 productDAO.deleteAll();
                 User admin = new User("admin2", "admin2", "admin's house");
                 admin.setAdmin(true);
-                userDao.insert(admin);
-                Cart adminCart = new Cart(admin.getId());
+                Cart adminCart = new Cart(userDao.insert(admin));
                 cartDao.insert(adminCart);
                 User testuser1 = new User("testuser1", "testuser1", "testuser1's house");
-                userDao.insert(testuser1);
-                Cart testuser1Cart = new Cart(testuser1.getId());
+                Cart testuser1Cart = new Cart(userDao.insert(testuser1));
                 cartDao.insert(testuser1Cart);
                 Product kingKruleAlbum = new Product("6 Feet Beneath The Moon - King Krule",
                         4,

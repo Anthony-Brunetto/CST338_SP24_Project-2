@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(User... user);
+    long insert(User user);
 
     @Delete
     void delete(User user);
@@ -33,4 +33,5 @@ public interface UserDAO {
 
     @Query("SELECT * FROM " + TuneTradeDatabase.USER_TABLE + " WHERE isAdmin == :isAdmin")
     LiveData<User> getUserByIsAdmin(boolean isAdmin);
+
 }

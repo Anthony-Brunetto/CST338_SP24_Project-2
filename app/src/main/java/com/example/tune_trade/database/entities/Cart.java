@@ -8,16 +8,24 @@ import com.example.tune_trade.database.TuneTradeDatabase;
 
 import java.util.Objects;
 
-@Entity(tableName = TuneTradeDatabase.CART_TABLE)
+@Entity(tableName = TuneTradeDatabase.CART_TABLE, foreignKeys = {
+        @ForeignKey(
+                entity = User.class,
+                parentColumns = {"id"},
+                childColumns = {"userId"},
+                onUpdate = ForeignKey.CASCADE,
+                onDelete = ForeignKey.CASCADE
+        )
+})
 public class Cart {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int userId;
+    private long userId;
 
     private String products;
 
-    public Cart(int userId) {
+    public Cart(long userId) {
         this.userId = userId;
     }
 
@@ -29,11 +37,11 @@ public class Cart {
         this.id = id;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
