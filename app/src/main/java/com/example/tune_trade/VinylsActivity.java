@@ -40,7 +40,7 @@ public class VinylsActivity extends AppCompatActivity {
 
 
 
-        instrumentsViewModel.getAllLogsByCategory("Vinyl").observe(this, products -> {
+        instrumentsViewModel.getAllLogsByCategory("Vinyls").observe(this, products -> {
             adapter.submitList(products);
         });
     }
