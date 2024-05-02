@@ -7,22 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.LiveData;
 
 import com.example.tune_trade.database.TuneTradeRepository;
-import com.example.tune_trade.database.entities.Product;
-import com.example.tune_trade.database.entities.User;
 import com.example.tune_trade.databinding.ActivityAddDiscountBinding;
-import com.example.tune_trade.databinding.ActivityMainBinding;
 
 public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR GO BACK TO ADMIN SETTINGS ACTIVITY
     private static final String LANDING_PAGE_USER_ID = "com.example.tune_trade.LANDING_PAGE_USER_ID";
-    private User user = null;
 
     private TuneTradeRepository repository;
 
@@ -54,12 +45,12 @@ public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR
 
     private void addGlobalDiscount() {
         String discount = binding.enterGlobalDiscountTextView.getText().toString();
-        int i_discount;
+        double i_discount;
         if (discount.isEmpty()) {
             Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
         }
-        i_discount = Integer.parseInt(discount) / 100;
+        i_discount = (double) Integer.parseInt(discount) / 100;
         Log.i(MainActivity.TAG, String.valueOf(i_discount));
         if (repository.updateProductDiscountByName(i_discount, "GLOBAL DISCOUNT")) {
             Toast.makeText(AddDiscount.this, "Product discount updated!", Toast.LENGTH_SHORT).show();
@@ -71,7 +62,7 @@ public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR
     private void addDiscountToProduct() {
         String productName = binding.nameProductNameTextView.getText().toString();
         String discount = binding.percentageDiscountTextView.getText().toString();
-        int i_discount;
+        double i_discount;
         if (productName.isEmpty()) {
             Toast.makeText(AddDiscount.this, "Product Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
@@ -84,7 +75,7 @@ public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR
             Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
             return;
         }
-        i_discount = Integer.parseInt(discount) / 100;
+        i_discount = (double) Integer.parseInt(discount) / 100;
         Log.i(MainActivity.TAG, productName);
         if (repository.updateProductDiscountByName(i_discount, productName)) {
             Toast.makeText(AddDiscount.this, "Product discount updated!", Toast.LENGTH_SHORT).show();
