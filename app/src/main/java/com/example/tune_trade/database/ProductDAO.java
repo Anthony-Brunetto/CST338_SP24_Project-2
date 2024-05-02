@@ -29,4 +29,10 @@ public interface ProductDAO {
 
     @Query("DELETE FROM " + TuneTradeDatabase.PRODUCT_TABLE)
     void deleteAll();
+
+    @Query("DELETE FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE name == :name")
+    void deleteProductByName(String name);
+
+    @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE name == :name")
+    LiveData<Product> getProductsByProductName(String name);
 }
