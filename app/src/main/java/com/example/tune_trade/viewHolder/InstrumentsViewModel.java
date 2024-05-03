@@ -24,6 +24,10 @@ public class InstrumentsViewModel extends AndroidViewModel {
         return repository.getProductsByCategory(category);
     }
 
+    public LiveData<List<Product>> getAllProductsLiveData(){
+        return repository.getAllProductsLiveData();
+    }
+
     public void insert(Product log){
         repository.insertProduct(log);
     }

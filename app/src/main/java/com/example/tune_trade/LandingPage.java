@@ -139,7 +139,7 @@ public class LandingPage extends AppCompatActivity {
         binding.InstrumentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = InstrumentsPageActivity.InstrumentsPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
+                Intent intent = InstrumentsPageActivity.InstrumentsPageIntentFactory(getApplicationContext(), loggedInUserId);
                 startActivity(intent);
             }
         });
@@ -147,7 +147,7 @@ public class LandingPage extends AppCompatActivity {
         binding.VinylButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = VinylsActivity.VinylsIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
+                Intent intent = VinylsActivity.VinylsIntentFactory(getApplicationContext(), loggedInUserId);
                 startActivity(intent);
             }
         });
@@ -155,7 +155,7 @@ public class LandingPage extends AppCompatActivity {
         binding.MusicPlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = MusicPlayerActivity.MusicPlayersIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
+                Intent intent = MusicPlayerActivity.MusicPlayersIntentFactory(getApplicationContext(), loggedInUserId);
                 startActivity(intent);
             }
         });

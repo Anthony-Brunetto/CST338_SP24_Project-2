@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.tune_trade.database.entities.Cart;
 
@@ -22,8 +23,10 @@ public interface CartDAO {
     LiveData<Cart> getCartByUserId(String userId);
 
     @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
-    void updateProductsByUserId(String products, String userId);
+    void updateProductsByUserId(String products, long userId);
+
 
     @Query("DELETE FROM " + TuneTradeDatabase.CART_TABLE)
     void deleteAll();
+
 }
