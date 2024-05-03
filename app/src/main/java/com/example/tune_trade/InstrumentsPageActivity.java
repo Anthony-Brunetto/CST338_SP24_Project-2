@@ -25,6 +25,8 @@ import com.example.tune_trade.viewHolder.InstrumentsViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class InstrumentsPageActivity extends AppCompatActivity implements InstrumentsAdapter.OnAddToCartClickListener{ // TODO: ADD BACK BUTTON OR GO BACK TO MAIN ACTIVITY
 
@@ -34,6 +36,8 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
     ActivityInstrumentsPageBinding binding;
     private InstrumentsViewModel instrumentsViewModel;
     public static List<Product> productList = new ArrayList<>();
+
+    int cartCount = 0;
 
     TuneTradeRepository repository;
     private int id;
@@ -57,6 +61,7 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         instrumentsViewModel.getAllLogsByCategory("Instruments").observe(this, products -> {
             adapter.submitList(products);
         });
@@ -71,15 +76,30 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
                 adapter.notifyDataSetChanged();
             }
         });
+
+        repository.getCartCount(id).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                cartCount = Integer.parseInt(s);
+            }
+        });
     }
 
     @Override
     public void onAddToCartClick(int productId) {
-        Cart cart1 = new Cart(id);
-        cart1.setProducts(String.valueOf(productId));
-        cart1.setUserId(id);
-        repository.updateCart(cart1);
-        Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        if(cartCount==0){
+            Cart cart = new Cart(id);
+            cart.setUserId(id);
+            cart.setProducts(String.valueOf(productId));
+            repository.insertCart(cart);
+            Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
+        }else {
+            Cart cart1 = new Cart(id);
+            cart1.setProducts(String.valueOf(productId));
+            cart1.setUserId(id);
+            repository.updateCart(cart1);
+            Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        }
         
     }
     public static Intent InstrumentsPageIntentFactory(Context context, int USER_ID){

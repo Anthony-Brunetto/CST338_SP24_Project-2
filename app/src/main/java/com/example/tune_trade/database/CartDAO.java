@@ -9,6 +9,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.tune_trade.database.entities.Cart;
+import com.example.tune_trade.database.entities.Product;
 
 @Dao
 public interface CartDAO {
@@ -16,6 +17,8 @@ public interface CartDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Cart cart);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertByID(Cart cart);
     @Delete
     void delete(Cart cart);
 
@@ -28,5 +31,8 @@ public interface CartDAO {
 
     @Query("DELETE FROM " + TuneTradeDatabase.CART_TABLE)
     void deleteAll();
+
+    @Query("SELECT COUNT(*) FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
+    LiveData<String> getCartCount(int userId);
 
 }

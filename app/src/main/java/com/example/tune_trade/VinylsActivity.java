@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.tune_trade.database.CartDAO;
 import com.example.tune_trade.database.TuneTradeRepository;
 import com.example.tune_trade.database.entities.Cart;
 import com.example.tune_trade.database.entities.Product;
@@ -36,6 +37,7 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
     private static final String vinyls_userid = "com.example.tune_trade.vinyls_userid";
 
     private int id;
+    int cartCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,15 +74,30 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
                 adapter.notifyDataSetChanged();
             }
         });
+
+        repository.getCartCount(id).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                cartCount = Integer.parseInt(s);
+            }
+        });
     }
 
     @Override
     public void onAddToCartClick(int productId) {
-        Cart cart1 = new Cart(id);
-        cart1.setProducts(String.valueOf(productId));
-        cart1.setUserId(id);
-        repository.updateCart(cart1);
-        Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        if(cartCount == 0){
+            Cart cart = new Cart(id);
+            cart.setUserId(id);
+            cart.setProducts(String.valueOf(productId));
+            repository.insertCart(cart);
+            Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
+        }else {
+            Cart cart1 = new Cart(id);
+            cart1.setProducts(String.valueOf(productId));
+            cart1.setUserId(id);
+            repository.updateCart(cart1);
+            Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static Intent VinylsIntentFactory(Context context, int USER_ID){

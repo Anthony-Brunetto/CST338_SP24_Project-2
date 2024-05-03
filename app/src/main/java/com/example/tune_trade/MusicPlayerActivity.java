@@ -29,6 +29,8 @@ public class MusicPlayerActivity extends AppCompatActivity implements Instrument
     ActivityMusicPlayerBinding binding;
     private InstrumentsViewModel instrumentsViewModel;
     private static final String musicplayers_userid = "com.example.tune_trade.musicplayers_userid";
+
+    int cartCount = 0;
     public static List<Product> productList = new ArrayList<>();
     private int id;
 
@@ -67,15 +69,30 @@ public class MusicPlayerActivity extends AppCompatActivity implements Instrument
                 adapter.notifyDataSetChanged();
             }
         });
+
+        repository.getCartCount(id).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                cartCount = Integer.parseInt(s);
+            }
+        });
     }
 
     @Override
     public void onAddToCartClick(int productId) {
-        Cart cart1 = new Cart(id);
-        cart1.setProducts(String.valueOf(productId));
-        cart1.setUserId(id);
-        repository.updateCart(cart1);
-        Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        if(cartCount == 0){
+            Cart cart = new Cart(id);
+            cart.setUserId(id);
+            cart.setProducts(String.valueOf(productId));
+            repository.insertCart(cart);
+            Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
+        }else {
+            Cart cart1 = new Cart(id);
+            cart1.setProducts(String.valueOf(productId));
+            cart1.setUserId(id);
+            repository.updateCart(cart1);
+            Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static Intent MusicPlayersIntentFactory(Context context, int USER_ID){
