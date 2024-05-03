@@ -102,7 +102,7 @@ public class TuneTradeRepository {
 
     public void updateCart(Cart cart){
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
-            cartDAO.updateProductsByUserId(cart.getProducts(), cart.getUserId());
+            cartDAO.updateProductsByUserId(cart.getProducts().toString(), cart.getUserId());
         });
     }
 

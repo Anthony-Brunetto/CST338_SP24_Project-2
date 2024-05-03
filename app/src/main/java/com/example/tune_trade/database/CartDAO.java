@@ -35,4 +35,5 @@ public interface CartDAO {
     @Query("SELECT COUNT(*) FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<String> getCartCount(int userId);
 
+
 }

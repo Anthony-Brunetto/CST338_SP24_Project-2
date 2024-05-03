@@ -7,8 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.tune_trade.StringListConverter;
 import com.example.tune_trade.database.entities.Cart;
 import com.example.tune_trade.database.entities.Product;
 import com.example.tune_trade.MainActivity;
@@ -18,6 +20,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Product.class, User.class, Cart.class}, version = 1, exportSchema = false)
+@TypeConverters({StringListConverter.class})
 public abstract class TuneTradeDatabase extends RoomDatabase {
 
     public static final String PRODUCT_TABLE = "productTable";

@@ -24,6 +24,7 @@ import com.example.tune_trade.viewHolder.InstrumentsAdapter;
 import com.example.tune_trade.viewHolder.InstrumentsViewModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class VinylsActivity extends AppCompatActivity implements InstrumentsAdapter.OnAddToCartClickListener { // TODO: ADD BACK BUTTON OR GO BACK TO MAIN ACTIVITY
@@ -88,7 +89,7 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
         if(cartCount == 0){
             Cart cart = new Cart(id);
             cart.setUserId(id);
-            cart.setProducts(String.valueOf(productId));
+            cart.setProducts(Collections.singletonList(String.valueOf(productId)).toString());
             repository.insertCart(cart);
             Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
         }else {
