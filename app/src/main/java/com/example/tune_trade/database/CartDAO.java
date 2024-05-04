@@ -26,6 +26,9 @@ public interface CartDAO {
     @Query(" SELECT products FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<String> getProductsFromCart(String userId);
 
+    @Query(" SELECT products FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
+    LiveData<String> getProductsFromCartLong(long userId);
+
 
     @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
     void updateProductsByUserId(String products, long userId);

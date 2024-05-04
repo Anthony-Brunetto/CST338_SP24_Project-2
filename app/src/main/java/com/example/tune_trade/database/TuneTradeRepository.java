@@ -115,6 +115,10 @@ public class TuneTradeRepository {
         return cartDAO.getProductsFromCart(userId);
     }
 
+    public LiveData<String> getProductsFromCartLong(long userId) {
+        return cartDAO.getProductsFromCartLong(userId);
+    }
+
     public void updateCartByUserId(Cart cart){
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             cartDAO.insertByID(cart);
