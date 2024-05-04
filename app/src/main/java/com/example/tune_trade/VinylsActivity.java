@@ -35,6 +35,7 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
 
     public static List<Product> productList = new ArrayList<>();
 
+    private String productsCart;
     private static final String vinyls_userid = "com.example.tune_trade.vinyls_userid";
 
     private int id;
@@ -54,6 +55,7 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
         repository = TuneTradeRepository.getRepository(getApplication());
         int userId = getIntent().getIntExtra(vinyls_userid, -1);
         id = userId;
+//        products = repository.getProductsCart(String.valueOf(id));
         final InstrumentsAdapter adapter = new InstrumentsAdapter(new InstrumentsAdapter.instrumentDiff());
         adapter.setOnAddToCartClickListener(this);
         recyclerView.setAdapter(adapter);
@@ -82,10 +84,16 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
                 cartCount = Integer.parseInt(s);
             }
         });
+
+        instrumentsViewModel.getProductsCart(String.valueOf(id)).observe(this, products ->{
+            productsCart = products;
+        });
     }
 
     @Override
     public void onAddToCartClick(int productId) {
+//        products = String.valueOf(repository.getProductsCart(String.valueOf(id)));
+        StringBuilder sb = new StringBuilder();
         if(cartCount == 0){
             Cart cart = new Cart(id);
             cart.setUserId(id);
@@ -93,6 +101,11 @@ public class VinylsActivity extends AppCompatActivity implements InstrumentsAdap
             repository.insertCart(cart);
             Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
         }else {
+//            if (productsCart.isEmpty()){
+//                productsCart = "";
+//            }
+            sb.append(productsCart).append(",");
+            sb.append(productId);
             Cart cart1 = new Cart(id);
             cart1.setProducts(String.valueOf(productId));
             cart1.setUserId(id);

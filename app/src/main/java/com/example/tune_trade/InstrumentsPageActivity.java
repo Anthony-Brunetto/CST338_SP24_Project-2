@@ -41,6 +41,7 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
     int cartCount = 0;
 
     TuneTradeRepository repository;
+    private String productsCart;
     private int id;
 
     @Override
@@ -57,6 +58,7 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
         repository = TuneTradeRepository.getRepository(getApplication());
         int userId = getIntent().getIntExtra(instrument_userid, -1);
         id = userId;
+//        products = repository.getProductsCart(String.valueOf(id));
         final InstrumentsAdapter adapter = new InstrumentsAdapter(new InstrumentsAdapter.instrumentDiff());
         adapter.setOnAddToCartClickListener(this);
         recyclerView.setAdapter(adapter);
@@ -84,10 +86,17 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
                 cartCount = Integer.parseInt(s);
             }
         });
+
+        instrumentsViewModel.getProductsCart(String.valueOf(id)).observe(this, products ->{
+            productsCart = products;
+        });
+
     }
 
     @Override
     public void onAddToCartClick(int productId) {
+//        products = String.valueOf(repository.getProductsCart(String.valueOf(id)));
+        StringBuilder sb = new StringBuilder();
         if(cartCount==0){
             Cart cart = new Cart(id);
             cart.setUserId(id);
@@ -95,8 +104,13 @@ public class InstrumentsPageActivity extends AppCompatActivity implements Instru
             repository.insertCart(cart);
             Toast.makeText(this, "New Cart created and item added to cart", Toast.LENGTH_SHORT).show();
         }else {
+//            if(productsCart.isEmpty()){
+//                productsCart = "";
+//            }
+            sb.append(productsCart).append(",");
+            sb.append(productId);
             Cart cart1 = new Cart(id);
-            cart1.setProducts(String.valueOf(productId));
+            cart1.setProducts(String.valueOf(sb));
             cart1.setUserId(id);
             repository.updateCart(cart1);
             Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show();

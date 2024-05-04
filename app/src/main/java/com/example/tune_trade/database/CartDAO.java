@@ -6,10 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import com.example.tune_trade.database.entities.Cart;
-import com.example.tune_trade.database.entities.Product;
 
 @Dao
 public interface CartDAO {
@@ -25,8 +23,15 @@ public interface CartDAO {
     @Query("SELECT * FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<Cart> getCartByUserId(String userId);
 
+    @Query(" SELECT products FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
+    LiveData<String> getProductsFromCart(String userId);
+
+
     @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
     void updateProductsByUserId(String products, long userId);
+
+    @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = CASE WHEN products IS NULL THEN :productId ELSE products || ',' || :productId END WHERE userId = :userId")
+    void addProductToCart(String productId, long userId);
 
 
     @Query("DELETE FROM " + TuneTradeDatabase.CART_TABLE)

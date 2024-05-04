@@ -6,13 +6,13 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.tune_trade.database.TuneTradeRepository;
-import com.example.tune_trade.database.entities.Cart;
 import com.example.tune_trade.database.entities.Product;
 
 import java.util.List;
 
 public class InstrumentsViewModel extends AndroidViewModel {
     private final TuneTradeRepository repository;
+    private String products;
 //    private final LiveData<List<Product>> allLogsByCategory;
 
     public InstrumentsViewModel(Application application){
@@ -27,6 +27,11 @@ public class InstrumentsViewModel extends AndroidViewModel {
 
     public LiveData<List<Product>> getAllProductsLiveData(){
         return repository.getAllProductsLiveData();
+    }
+
+    public LiveData<String> getProductsCart(String userId){
+        products = String.valueOf(repository.getProductsCart(userId));
+        return repository.getProductsCart(userId);
     }
 
     public LiveData<String> getCartCount(int useriD){

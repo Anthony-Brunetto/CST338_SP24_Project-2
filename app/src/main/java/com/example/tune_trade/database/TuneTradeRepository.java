@@ -110,9 +110,20 @@ public class TuneTradeRepository {
         return productDAO.getAllRecordsLiveData();
     }
 
+
+    public LiveData<String> getProductsCart(String userId){
+        return cartDAO.getProductsFromCart(userId);
+    }
+
     public void updateCartByUserId(Cart cart){
         TuneTradeDatabase.databaseWriteExecutor.execute(()->{
             cartDAO.insertByID(cart);
+        });
+    }
+
+    public void updateCartNullCondition(Cart cart){
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            cartDAO.addProductToCart(cart.getProducts(), cart.getUserId());
         });
     }
 
