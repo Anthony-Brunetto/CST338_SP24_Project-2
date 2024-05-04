@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey;
 
 import com.example.tune_trade.database.TuneTradeDatabase;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity(tableName = TuneTradeDatabase.CART_TABLE, foreignKeys = {

@@ -18,6 +18,9 @@ public interface ProductDAO {
     @Query("SELECT * from " + TuneTradeDatabase.PRODUCT_TABLE + " LIMIT -1 OFFSET 1")
     List<Product> getAllRecords();
 
+    @Query("SELECT * from " + TuneTradeDatabase.PRODUCT_TABLE + " LIMIT -1 OFFSET 1")
+    LiveData<List<Product>> getAllRecordsLiveData();
+
     @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE category == :category")
     LiveData<Product> getProductsByCategory(String category);
 

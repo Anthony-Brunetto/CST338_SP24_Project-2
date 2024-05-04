@@ -98,12 +98,51 @@ public class TuneTradeRepository {
         });
     }
 
+
+
+    public void updateCart(Cart cart){
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            cartDAO.updateProductsByUserId(cart.getProducts().toString(), cart.getUserId());
+        });
+    }
+
+    public LiveData<List<Product>> getAllProductsLiveData(){
+        return productDAO.getAllRecordsLiveData();
+    }
+
+
+    public LiveData<String> getProductsCart(String userId){
+        return cartDAO.getProductsFromCart(userId);
+    }
+
+    public void updateCartByUserId(Cart cart){
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            cartDAO.insertByID(cart);
+        });
+    }
+
+    public void updateCartNullCondition(Cart cart){
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            cartDAO.addProductToCart(cart.getProducts(), cart.getUserId());
+        });
+    }
+
+    public LiveData<String> getCartCount(int userId){
+        return cartDAO.getCartCount(userId);
+    }
+
     public LiveData<User> getUserByUsername(String username) {
         return userDAO.getUserByUserName(username);
     }
 
     public LiveData<User> getUserByUserId(int userId) {
         return userDAO.getUserByUserId(userId);
+    }
+
+    public boolean checkCartExists(int userId) {
+        // Query the database to check if a cart exists for the user
+        List<Cart> carts = (List<Cart>) cartDAO.getCartByUserId(String.valueOf(userId));
+        return !carts.isEmpty();
     }
 
     public LiveData<User> getUserByIsAdmin(boolean isAdmin) {
