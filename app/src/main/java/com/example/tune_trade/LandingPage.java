@@ -168,6 +168,14 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        binding.CartButtonLandingPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = CartActivity.CartActivityIntentFactory(getApplicationContext(), loggedInUserId);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void getUsernameFromSharedPreferences() {

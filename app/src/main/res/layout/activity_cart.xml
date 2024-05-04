@@ -8,4 +8,64 @@
     tools:context=".CartActivity"
     android:background="@color/black">
 
+    <TextView
+        android:id="@+id/product_one_text_view"
+        android:layout_width="369dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/product_two_text_view"
+        android:layout_width="369dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_one_text_view" />
+
+    <TextView
+        android:id="@+id/product_three_text_view"
+        android:layout_width="369dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_two_text_view" />
+
+    <TextView
+        android:id="@+id/product_four_text_view"
+        android:layout_width="369dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_three_text_view" />
+
+    <TextView
+        android:id="@+id/product_five_text_view"
+        android:layout_width="369dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_four_text_view" />
+
+    <Button
+        android:id="@+id/checkout_button"
+        android:layout_width="252dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/checkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_five_text_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>

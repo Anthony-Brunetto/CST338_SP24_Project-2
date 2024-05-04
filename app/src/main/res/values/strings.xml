@@ -38,4 +38,5 @@
     <string name="enter_percentage_of_discount">Enter percentage of discount</string>
     <string name="add_discount_to_product">Add Discount To Product</string>
     <string name="add_global_discount">Add Global Discount</string>
+    <string name="checkout">Checkout</string>
 </resources>
