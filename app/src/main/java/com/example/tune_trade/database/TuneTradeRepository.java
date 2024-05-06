@@ -82,6 +82,25 @@ public class TuneTradeRepository {
         });
     }
 
+    public List<User> getAllUsersList(){
+        Future<List<User>> future;
+        future = TuneTradeDatabase.databaseWriteExecutor.submit(
+                new Callable<List<User>>() {
+                    @Override
+                    public List<User> call() throws Exception {
+                        return userDAO.getAllUsersList();
+                    }
+                }
+        );
+        try {
+            return future.get();
+        }catch (InterruptedException | ExecutionException e){
+            e.printStackTrace();
+            Log.i(MainActivity.TAG, "Problem when getting all Songs in the repository");
+        }
+        return null;
+    }
+
     public LiveData<List<Product>> getProductsByCategory(String category) {
         return productDAO.getProductsByCategoryLiveData(category);
     }
