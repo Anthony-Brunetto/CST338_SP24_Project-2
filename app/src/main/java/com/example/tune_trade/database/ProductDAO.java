@@ -39,6 +39,12 @@ public interface ProductDAO {
     @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE name == :name")
     LiveData<Product> getProductsByProductName(String name);
 
+    @Query("SELECT * FROM " + TuneTradeDatabase.PRODUCT_TABLE + " WHERE id == :id")
+    LiveData<Product> getProductsById(int id);
+
     @Query("UPDATE " + TuneTradeDatabase.PRODUCT_TABLE + " SET discount = :discount WHERE name == :name")
     void updateProductDiscountByName(double discount, String name);
+
+    @Query("UPDATE " + TuneTradeDatabase.PRODUCT_TABLE + " SET count = :count WHERE name == :name")
+    void updateProductCountByName(int count, String name);
 }

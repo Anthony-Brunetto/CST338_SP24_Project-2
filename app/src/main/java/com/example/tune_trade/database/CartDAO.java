@@ -21,7 +21,7 @@ public interface CartDAO {
     void delete(Cart cart);
 
     @Query("SELECT * FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
-    LiveData<Cart> getCartByUserId(String userId);
+    LiveData<Cart> getCartByUserId(long userId);
 
     @Query(" SELECT products FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<String> getProductsFromCart(String userId);
@@ -43,5 +43,6 @@ public interface CartDAO {
     @Query("SELECT COUNT(*) FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<String> getCartCount(int userId);
 
-
+    @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
+    void updateCartByUserId(String products, int userId);
 }

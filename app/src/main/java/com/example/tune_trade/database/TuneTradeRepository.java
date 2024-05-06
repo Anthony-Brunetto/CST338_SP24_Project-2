@@ -145,7 +145,7 @@ public class TuneTradeRepository {
 
     public boolean checkCartExists(int userId) {
         // Query the database to check if a cart exists for the user
-        List<Cart> carts = (List<Cart>) cartDAO.getCartByUserId(String.valueOf(userId));
+        List<Cart> carts = (List<Cart>) cartDAO.getCartByUserId(userId);
         return !carts.isEmpty();
     }
 
@@ -173,5 +173,21 @@ public class TuneTradeRepository {
             return false;
         }
         return true;
+    }
+
+    public LiveData<Product> getProductsById(int id) {
+        return productDAO.getProductsById(id);
+    }
+
+    public void updateCartByUserId(String products, int userId) {
+        cartDAO.updateCartByUserId(products, userId);
+    }
+
+    public void updateProductCountByName(int count, String name) {
+        productDAO.updateProductCountByName(count, name);
+    }
+
+    public LiveData<Cart> getCartByUserId(long userId) {
+        return cartDAO.getCartByUserId(userId);
     }
 }
