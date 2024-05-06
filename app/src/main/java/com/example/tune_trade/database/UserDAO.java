@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.tune_trade.database.entities.User;
 
@@ -16,11 +17,17 @@ public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insert(User user);
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void update(User user);
+
     @Delete
     void delete(User user);
 
     @Query("SELECT * FROM " + TuneTradeDatabase.USER_TABLE + " ORDER BY username")
     LiveData<List<User>> getAllUsers();
+
+    @Query("SELECT * FROM " + TuneTradeDatabase.USER_TABLE + " ORDER BY username")
+    List<User> getAllUsersList();
 
     @Query("DELETE from " + TuneTradeDatabase.USER_TABLE)
     void deleteAll();
