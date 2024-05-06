@@ -91,12 +91,14 @@ public class Product {
 
     @Override
     public String toString() {
-        return
-                "Name = " + name + '\n' +
-                "Price = $" + price + '\n' +
-                "Description = " + description + '\n' +
-                "Category = " + category + '\n' +
-                "Count = " + count + '\n';
+        String out = String.format(
+                "Name = %s%nPrice = $%.2f%nDescription = %s%nCategory = %s%n%n%n",
+                name,
+                (price - price * discount),
+                description,
+                category
+        );
+        return out;
     }
 
     @Override
