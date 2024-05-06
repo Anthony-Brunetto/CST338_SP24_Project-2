@@ -10,10 +10,12 @@
 
     <TextView
         android:id="@+id/product_text_view"
-        android:layout_width="378dp"
-        android:layout_height="525dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="367dp"
+        android:layout_height="464dp"
+        android:layout_marginTop="16dp"
         android:text=""
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,10 +24,8 @@
         android:id="@+id/checkout_button"
         android:layout_width="252dp"
         android:layout_height="61dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:text="@string/checkout"
-        android:textColor="@color/white"
-        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

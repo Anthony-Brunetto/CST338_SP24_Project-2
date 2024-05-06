@@ -34,29 +34,22 @@ public class AddDiscount extends AppCompatActivity { // TODO: ADD BACK BUTTON OR
             }
         });
 
-        binding.addGlobalDiscountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                addGlobalDiscount();
-            }
-        });
     }
 
     private void addGlobalDiscount() {
-        String discount = binding.enterGlobalDiscountTextView.getText().toString();
-        double i_discount;
-        if (discount.isEmpty()) {
-            Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        i_discount = (double) Integer.parseInt(discount) / 100;
-        Log.i(MainActivity.TAG, String.valueOf(i_discount));
-        if (repository.updateProductDiscountByName(i_discount, "GLOBAL DISCOUNT")) {
-            Toast.makeText(AddDiscount.this, "Product discount updated!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(AddDiscount.this, "Problem with updating product discount", Toast.LENGTH_SHORT).show();
-        }
+//        String discount = binding.enterGlobalDiscountTextView.getText().toString();
+//        double i_discount;
+//        if (discount.isEmpty()) {
+//            Toast.makeText(AddDiscount.this, "Discount Field must not be blank", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        i_discount = (double) Integer.parseInt(discount) / 100;
+//        Log.i(MainActivity.TAG, String.valueOf(i_discount));
+//        if (repository.updateProductDiscountByName(i_discount, "GLOBAL DISCOUNT")) {
+//            Toast.makeText(AddDiscount.this, "Product discount updated!", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(AddDiscount.this, "Problem with updating product discount", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     private void addDiscountToProduct() {
