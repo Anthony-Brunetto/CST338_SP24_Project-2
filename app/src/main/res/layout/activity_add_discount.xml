@@ -25,7 +25,7 @@
         android:id="@+id/name_product_name_textView"
         android:layout_width="350dp"
         android:layout_height="75dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="196dp"
         android:gravity="center"
         android:hint="@string/enter_the_name_of_the_product"
         android:inputType="text"
@@ -33,7 +33,7 @@
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,34 +64,5 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/percentage_discount_textView" />
-
-
-    <EditText
-        android:id="@+id/enter_global_discount_textView"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="84dp"
-        android:gravity="center"
-        android:hint="@string/enter_percentage_of_discount"
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_discount_to_product_button" />
-
-    <Button
-        android:id="@+id/add_global_discount_button"
-        android:layout_width="400dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/add_global_discount"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_global_discount_textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

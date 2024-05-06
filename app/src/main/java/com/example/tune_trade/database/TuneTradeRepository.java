@@ -159,12 +159,6 @@ public class TuneTradeRepository {
         });
     }
 
-    public void updateProductCountByName(int count, String name) {
-        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
-            productDAO.updateProductCountByName(count, name);
-        });
-    }
-
     public LiveData<Product> getProductByProductName(String username) {
         return productDAO.getProductsByProductName(username);
     }
@@ -185,11 +179,29 @@ public class TuneTradeRepository {
         return productDAO.getProductsById(id);
     }
 
-    public void updateCartByUserId(String products, int userId) {
-        cartDAO.updateCartByUserId(products, userId);
+    public boolean updateCartByUserId(String products, int userId) {
+        try {
+            TuneTradeDatabase.databaseWriteExecutor.execute(() -> {
+                cartDAO.updateCartByUserId(products, userId);
+            });
+        } catch (Exception e) {
+            Log.i(MainActivity.TAG, e.toString());
+            return false;
+        }
+        return true;
     }
 
-
+    public boolean updateProductCountByName(int count, String name) {
+        try {
+            TuneTradeDatabase.databaseWriteExecutor.execute(() -> {
+                productDAO.updateProductCountByName(count, name);
+            });
+        } catch (Exception e) {
+            Log.i(MainActivity.TAG, e.toString());
+            return false;
+        }
+        return true;
+    }
 
     public LiveData<Cart> getCartByUserId(long userId) {
         return cartDAO.getCartByUserId(userId);
