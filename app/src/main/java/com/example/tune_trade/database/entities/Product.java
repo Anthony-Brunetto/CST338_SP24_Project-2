@@ -92,11 +92,12 @@ public class Product {
     @Override
     public String toString() {
         String out = String.format(
-                "Name = %s%nPrice = $%.2f%nDescription = %s%nCategory = %s%n%n%n",
+                "Name = %s%nPrice = $%.2f%nDescription = %s%nCategory = %s%nCount = %s%n%n%n",
                 name,
                 (price - price * discount),
                 description,
-                category
+                category,
+                count
         );
         return out;
     }
