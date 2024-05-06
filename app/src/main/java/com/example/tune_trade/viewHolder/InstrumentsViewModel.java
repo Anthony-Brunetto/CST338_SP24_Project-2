@@ -29,9 +29,17 @@ public class InstrumentsViewModel extends AndroidViewModel {
         return repository.getAllProductsLiveData();
     }
 
+    public LiveData<Product> getProductByProductName(String username) {
+        return repository.getProductByProductName(username);
+    }
+
     public LiveData<String> getProductsCart(String userId){
         products = String.valueOf(repository.getProductsCart(userId));
         return repository.getProductsCart(userId);
+    }
+
+    public void updateProductCountByName(int count, String name) {
+        repository.updateProductCountByName(count, name);
     }
 
     public LiveData<String> getCartCount(int useriD){
