@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
@@ -33,13 +34,15 @@ public class CartActivity extends AppCompatActivity {
         repository = TuneTradeRepository.getRepository(getApplication());
         int userId = getIntent().getIntExtra(LANDING_PAGE_USER_ID, -1);
         LiveData<String> cart_obj = repository.getProductsFromCartLong((long)userId);
-        String[] cart_string_array = null;
-        if (cart_obj.getValue() != null) {
-            cart_string_array = cart_obj.getValue().split(",");
-        } else {
-            Log.i(MainActivity.TAG, "cart_string is null: " + userId);
-        }
-//        Log.i(MainActivity.TAG, cart_string_array.toString());
+        cart_obj.observe(this, products -> {
+            if (products != null) {
+//                cart_string_array = products.split(",");
+                Log.i(MainActivity.TAG, "cart_string is not null: " + products);
+                String[] cart_string_array = products.split(",");
+            } else {
+                Log.i(MainActivity.TAG, "cart_string is null: " + userId);
+            }
+        });
 
         String[] finalCart_string_array = cart_string_array;
         binding.checkoutButton.setOnClickListener(new View.OnClickListener() {
