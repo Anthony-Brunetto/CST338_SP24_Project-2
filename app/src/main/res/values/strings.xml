@@ -39,4 +39,7 @@
     <string name="add_discount_to_product">Add Discount To Product</string>
     <string name="add_global_discount">Add Global Discount</string>
     <string name="checkout">Checkout</string>
+    <string name="restock_products">Restock Products</string>
+    <string name="enter_the_amount_of_products">Enter the amount of products</string>
+    <string name="restock">Restock</string>
 </resources>

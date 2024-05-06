@@ -159,6 +159,12 @@ public class TuneTradeRepository {
         });
     }
 
+    public void updateProductCountByName(int count, String name) {
+        TuneTradeDatabase.databaseWriteExecutor.execute(()->{
+            productDAO.updateProductCountByName(count, name);
+        });
+    }
+
     public LiveData<Product> getProductByProductName(String username) {
         return productDAO.getProductsByProductName(username);
     }
@@ -183,9 +189,7 @@ public class TuneTradeRepository {
         cartDAO.updateCartByUserId(products, userId);
     }
 
-    public void updateProductCountByName(int count, String name) {
-        productDAO.updateProductCountByName(count, name);
-    }
+
 
     public LiveData<Cart> getCartByUserId(long userId) {
         return cartDAO.getCartByUserId(userId);
