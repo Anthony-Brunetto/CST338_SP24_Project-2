@@ -8,6 +8,9 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.tune_trade.database.entities.Cart;
+import com.example.tune_trade.database.entities.Product;
+
+import java.util.List;
 
 @Dao
 public interface CartDAO {
@@ -20,6 +23,9 @@ public interface CartDAO {
     @Delete
     void delete(Cart cart);
 
+    @Query("SELECT * from " + TuneTradeDatabase.CART_TABLE)
+    List<Cart> getAllRecords();
+
     @Query("SELECT * FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<Cart> getCartByUserId(long userId);
 
@@ -28,7 +34,6 @@ public interface CartDAO {
 
     @Query(" SELECT products FROM " + TuneTradeDatabase.CART_TABLE + " WHERE userId == :userId")
     LiveData<String> getProductsFromCartLong(long userId);
-
 
     @Query("UPDATE " + TuneTradeDatabase.CART_TABLE + " SET products = :products WHERE userId == :userId")
     void updateProductsByUserId(String products, long userId);

@@ -2,6 +2,15 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="CartDAOTest">
+        <State />
+      </entry>
+      <entry key="ProductDAOTest">
+        <State />
+      </entry>
+      <entry key="UserDAOTest">
+        <State />
+      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -17,6 +26,12 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-04-22T21:39:07.163778600Z" />
         </State>
+      </entry>
+      <entry key="insertTest()">
+        <State />
+      </entry>
+      <entry key="insertTest() (1)">
+        <State />
       </entry>
     </value>
   </component>
