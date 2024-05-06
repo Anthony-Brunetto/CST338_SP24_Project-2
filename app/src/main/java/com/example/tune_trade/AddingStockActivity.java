@@ -61,15 +61,14 @@ public class AddingStockActivity extends AppCompatActivity {
                     }
                     Toast.makeText(AddingStockActivity.this, "Product does not exist", Toast.LENGTH_SHORT).show();
                 } else {
-                    repository.updateProductCountByName(count, name);
                     nameChecked = true;
                     Toast.makeText(AddingStockActivity.this, "Product Restocked", Toast.LENGTH_SHORT).show();
                     Intent intent = AdminSettingsActivity.AdminSettingPageIntentFactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
                     startActivity(intent);
-                    repository.getProductByProductName(name).removeObserver(this);
                 }
             }
         });
+        repository.updateProductCountByName(count, name);
     }
 
 
