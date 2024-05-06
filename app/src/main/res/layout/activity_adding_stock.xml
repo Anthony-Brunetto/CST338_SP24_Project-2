@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddingStockActivity"
+    android:background="@color/black">
+
+
+    <EditText
+        android:id="@+id/product_name_delete_textView"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="156dp"
+        android:gravity="center"
+        android:hint="@string/enter_the_name_of_the_product_delete"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/product_amount_restock_textView"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="300dp"
+        android:gravity="center"
+        android:hint="@string/enter_the_amount_of_products"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/restock_product_button"
+        android:layout_width="400dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="204dp"
+        android:text="@string/restock"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_name_delete_textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

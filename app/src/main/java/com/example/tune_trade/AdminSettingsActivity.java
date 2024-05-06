@@ -58,6 +58,14 @@ public class AdminSettingsActivity extends AppCompatActivity { // TODO: ADD BACK
             }
         });
 
+        binding.addStockButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = AddingStockActivity.AddingStockIntentfactory(getApplicationContext(), getIntent().getStringExtra(LANDING_PAGE_USER_ID));
+                startActivity(intent);
+            }
+        });
+
         binding.addProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

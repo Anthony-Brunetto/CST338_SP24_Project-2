@@ -95,7 +95,8 @@ public class Product {
                 "Name = " + name + '\n' +
                 "Price = $" + price + '\n' +
                 "Description = " + description + '\n' +
-                "Category = " + category + '\n';
+                "Category = " + category + '\n' +
+                "Count = " + count + '\n';
     }
 
     @Override
